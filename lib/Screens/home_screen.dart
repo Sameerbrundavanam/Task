@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -87,12 +88,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16.0),
-                                border: Border.all(
-                                  color: Colors.black,
-                                )
+                                color: Colors.white,
+                                // border: Border.all(
+                                //   color: Colors.black,
+                                // )
                               ),
                               child: Center(
-                                child: Text("Prepaid",style: TextStyle(fontSize: 8),),
+                                child: Text("Prepaid",style: TextStyle(fontSize: 8,color: Color(0XFFf87d0b),fontWeight: FontWeight.bold),),
                               ),
                             ),
                           ],
@@ -106,8 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 150,
                           width: 300,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.0),
-                            color: Colors.white
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(16.0),topLeft: Radius.circular(16.0),bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10.0)),
+                            color: Colors.white,
                           ),
                           child: Stack(
                             children: [
@@ -320,10 +322,104 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              Positioned(
+                top: 440,
+                left: 17,
+                child: Container(
+                  height: 280,
+                  width: 360,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    border: Border.all(
+                      width: 1.0,
+                      color: Colors.black12,
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 20,
+                        left: 15,
+                        child: Text("Quick Actions",style: TextStyle(color: Color(0XFF0e0b40),fontWeight: FontWeight.bold,fontSize: 17),),
+                      ),
+                      Positioned(
+                        top: 60,
+                        left: 30,
+                        child: Row(
+                          children: [
+                            buildAvatar(Icons.mobile_friendly),
+                            SizedBox(width: 33,),
+                            buildAvatar(Icons.payment),
+                            SizedBox(width: 33,),
+                            buildAvatar(FontAwesomeIcons.phone),
+                            SizedBox(width: 33,),
+                            buildAvatar(Icons.wifi),
+                            SizedBox(width: 33,),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 117,
+                        left: 29,
+                        child: Row(
+                          children: [
+                            Text("Recharge",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 33,),
+                            Text("Pay Bill",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 33,),
+                            Text("Landline",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 33,),
+                            Text("Book Fiber",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 10,),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 170,
+                        left: 30,
+                        child: Row(
+                          children: [
+                            buildAvatar(Icons.sim_card),
+                            SizedBox(width: 33,),
+                            buildAvatar(Icons.contact_phone),
+                            SizedBox(width: 33,),
+                            buildAvatar(Icons.do_not_disturb),
+                            SizedBox(width: 33,),
+                            buildAvatar(FontAwesomeIcons.diceSix),
+                            SizedBox(width: 33,),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 230,
+                        left: 29,
+                        child: Row(
+                          children: [
+                            Text("Upgrade to\n4G Sim",style: TextStyle(fontSize: 10,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 25,),
+                            Text("Choose Your\n Number",style: TextStyle(fontSize: 10,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 20,),
+                            Text("Do not Disturb",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w500),),
+                            SizedBox(width: 20,),
+                            Text("Games",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w500),),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
   }
+}
+Widget buildAvatar(IconData data){
+  return CircleAvatar(
+    radius: 25,
+    backgroundColor: Colors.black12,
+    child: Icon(data,color: Colors.black,),
+  );
 }
